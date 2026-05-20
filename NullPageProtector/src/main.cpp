@@ -39,7 +39,7 @@ EXTERN_C NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING Regis
 void DrvUnloadRoutine(PDRIVER_OBJECT DriverObject)
 {
     PsSetCreateProcessNotifyRoutine(CreateProcessNotifyRoutine, TRUE);
-    UNICODE_STRING symlnk = RTL_CONSTANT_STRING(L"\\??\\NullPageProtectorDrv");
+    UNICODE_STRING symlnk = RTL_CONSTANT_STRING(L"\\??\\NullPageProtector");
     IoDeleteSymbolicLink(&symlnk);
     IoDeleteDevice(DriverObject->DeviceObject);
 }
